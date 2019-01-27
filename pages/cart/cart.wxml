@@ -1,0 +1,40 @@
+<view class="container carts-list">
+    <view wx:for="{{carts}}" class="carts-container" wx:key="index" bindtap="showGoods" data-object-id="{{item.objectId}}">
+    	<view class="carts-item" style="left: {{itemLefts[index]}}px;" data-index="{{index}}" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd">
+	    	<!-- 复选框图标 -->
+			<icon type="{{item.selected ? 'success_circle' : 'circle'}}" size="20" catchtap="bindCheckbox" data-id="{{item.id}}"/>
+			<view>
+			<!-- 缩略图 -->
+				<image class="carts-image" src="{{item.img}}" mode="aspectFill"/>
+			</view>
+			<view class="carts-text">
+				<!-- 商品标题 -->
+				<text class="carts-title">{{item.name}}</text>
+				<view class="carts-subtitle">
+				<!-- 价格 -->
+				  	<text class="carts-price">{{item.price}}</text>
+				  	<!-- 数量加减 -->
+				  	<view>
+				      <view class="stepper">
+						<!-- 减号 -->
+						<text data-id="{{item.id}}" catchtap="bindMinus">-</text>
+						<!-- 数值 -->
+						<input type="number" data-id="{{index}}" catchchange="bindManual" catchtap="bindManualTapped" value="{{item.num}}" />
+						<!-- 加号 -->
+						<text class="normal" data-id="{{item.id}}"  catchtap="bindPlus">+</text>
+					  </view>
+				  	</view>
+				</view>
+			</view>
+      	</view>
+      	<button type="warn" class="delete-button" catchtap="delete" data-object-id="{{item.objectId}}">删除</button>
+    </view>
+</view>
+<view class="carts-footer">
+	<view class="select-and-amount" bindtap="bindSelectAll">
+		<icon type="{{selectedAllStatus ? 'success_circle' : 'circle'}}" size="18" catchtap="selectAll"/>
+		<text>全选</text>
+		<text>{{total}}</text>
+	</view>
+	<view class="button" bindtap="bindCheckout">立即结算</view>
+</view>       

@@ -1,0 +1,141 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.4.2",
+	"appid": "wx3ec76f16caa8064d",
+	"projectname": "weixinapp",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 15,
+			"list": [
+				{
+					"id": -1,
+					"name": "address/add",
+					"pathName": "pages/address/add/add",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "address/list",
+					"pathName": "pages/address/list/list",
+					"query": ""
+				},
+				{
+					"id": 2,
+					"name": "cart/cart",
+					"pathName": "pages/cart/cart",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "catalogue/catalogue",
+					"pathName": "pages/catalogue/catalogue",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "detail/detail",
+					"pathName": "pages/goods/detail/detail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "list/list",
+					"pathName": "pages/goods/list/list",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "member/index/index",
+					"pathName": "pages/member/index/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "member/aboutus/aboutus",
+					"pathName": "pages/member/aboutus/aboutus",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "admin/login/login",
+					"pathName": "pages/admin/login/login",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "admin/dashboard/dashboard",
+					"pathName": "pages/admin/dashboard/dashboard",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "admin/order/order",
+					"pathName": "pages/admin/order/order",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "order/checkout/checkout",
+					"pathName": "pages/order/checkout/checkout",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "order/payment/payment",
+					"pathName": "pages/order/payment/payment",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "goods/detail/detail",
+					"pathName": "pages/goods/detail/detail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "catalogue/catalogue",
+					"pathName": "pages/catalogue/catalogue",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "catalogue/catalogue",
+					"pathName": "pages/catalogue/catalogue",
+					"query": ""
+				}
+			]
+		}
+	}
+}
