@@ -67,7 +67,7 @@ App({
   globalData: {
     userInfo: null,
     "prefix_url":"http://132.232.234.27/swjtu",
-    openId:""
+    openId:"oPWkG0fWEaCWnLY30w6342YNWyDg"
     
   }
 })
