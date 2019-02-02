@@ -53,7 +53,7 @@ Page({
   //点击购物车按钮跳转
   gotocart:function(){
     wx.switchTab({
-      url: '/pages/catalogue/catalogue',
+      url: '/pages/cart/cart',
     })
   },
 

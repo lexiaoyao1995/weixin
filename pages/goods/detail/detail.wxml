@@ -12,9 +12,9 @@
 
 <view class="footer">
     <view class="opt-buttons">
-        <view class="button-group" bindtap="showCart">
+        <view class="button-group" bindtap="gotocart">
             <image src="../../../images/icon_cart.png" class="button-image" />
-            <text class="button-text" bindtap='gotocart'>购物车</text>
+            <text class="button-text" >购物车</text>
         </view>
         <view class="button-group" bindtap="">
             <contact-button class="contact-button" size="22" /> 

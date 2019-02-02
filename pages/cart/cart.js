@@ -38,11 +38,31 @@ Page({
   onShow: function () {
     var that = this;
     wx.request({
-      url: app.globalData.prefix_url + "/car/listByCustomer/1",
+      //获取当前openId下的商品信息
+      url: app.globalData.prefix_url + "/car/listCarByOpenId",
+      method: "post",
+      header: { "content-type": "application/json" },
+      data:{
+        "openId": app.globalData.openId
+      },
       success: function (res) {
-        // console.log(res);
+      //  console.log(res);
+        var cars = [];
+        var data = res.data.data;
+        for(var i=0;i<data.length;i++){
+           var carItem =new Object();
+          //methods
+          carItem.img= data[i].good.img;
+          carItem.name = data[i].good.name;
+          carItem.price = data[i].good.price;
+          carItem.num=data[i].car.num;
+          carItem.id = data[i].car.id;
+          carItem.goodsId = data[i].car.goodsId;
+          cars.push(carItem);
+
+        }
         that.setData({
-          "carts": res.data.data
+          "carts": cars 
         })
       }
     });
@@ -87,11 +107,11 @@ Page({
   },
   // 数量减少按钮
   bindMinus: function (e) {
-    // console.log(e);
+    //  console.log(e);
     var id = e.currentTarget.dataset.id;
     //console.log(id);
     var cats = this.data.carts;
-    //console.log(cats);
+    // console.log(cats);
     for (var i = 0; i < cats.length; i++) {
       if (cats[i].id == id) {
         cats[i].num--;
@@ -103,6 +123,24 @@ Page({
       "carts": cats,
       "total": countTotal(this.data.carts)
     })
+    for(var i=0;i<cats.length;i++){
+      if (cats[i].id == id) {
+        wx.request({
+          url: app.globalData.prefix_url + '/car/addNum',
+          method: "post",
+          header: { "content-type": "application/json" },
+          data: {
+            "goodsId": cats[i].goodsId,
+            "id": id,
+            "num": cats[i].num,
+            "remark1": app.globalData.openId
+          },
+          success:function(res){
+            console.log(res)
+          }
+        })
+      }
+    }
   },
   // 复选框选择事件
   bindCheckbox: function (e) {
@@ -126,7 +164,7 @@ Page({
     var id = e.currentTarget.dataset.id;
     //console.log(id);
     var cats = this.data.carts;
-    //console.log(cats);
+    // console.log(cats);
     for (var i = 0; i < cats.length; i++) {
       if (cats[i].id == id) {
         cats[i].num++;
@@ -136,8 +174,25 @@ Page({
     this.setData({
       "carts": cats,
       "total": countTotal(this.data.carts)
-
     })
+    for (var i = 0; i < cats.length; i++) {
+      if (cats[i].id == id) {
+        wx.request({
+          url: app.globalData.prefix_url + '/car/addNum',
+          method: "post",
+          header: { "content-type": "application/json" },
+          data: {
+            "goodsId": cats[i].goodsId,
+            "id": id,
+            "num": cats[i].num,
+            "remark1": app.globalData.openId
+          },
+          success: function (res) {
+            console.log(res)
+          }
+        })
+      }
+    }
   },
   //全选按钮
   selectAll: function () {
